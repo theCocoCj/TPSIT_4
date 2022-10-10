@@ -11,7 +11,7 @@ int main() {
     int temp; //variabile temporanea
     int k, sup; //indici
     int *a=p; 
-    for (sup = NMAX-1; sup > 0; sup--) { // una volta che il primo numero è in ordine passa al successivo
+    for (sup = NMAX-1; sup > 0; sup--) { //una volta che il primo numero è in ordine passa al successivo
             p=a;
         for (k = 0; k < sup ; k++) { //tiene conto dei numeri da confrontare
             if (*p > *(p+1)) { //verifica se la coppia di numeri è in ordine 
