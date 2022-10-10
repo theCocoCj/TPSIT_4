@@ -25,14 +25,15 @@ typedef struct dati {
 int main() {
     FILE *fp;
 
-    Dati Games[NRIGHE];
-    Dati* puntatore = Games;
+    Dati *a;
+    a=(Dati*)malloc(16600 * sizeof(Dati)); //creazione grandezza dell' array dinamico
+    Dati* puntatore = a; //assegnazione dei vari valori alle celle
     char riga[BUFFER_SIZE];
 
     int k=0;
 
     fp = fopen("vgsales.csv","r");
-    fgets(riga,BUFFER_SIZE, fp);
+    fgets(riga,BUFFER_SIZE, fp); //toglie la prima riga del file
 
     if(fp==NULL) {
 
@@ -44,32 +45,32 @@ int main() {
         printf("Sono dentro\n");
         while(fgets(riga,BUFFER_SIZE, fp)) {
 
-            (puntatore+k)->rank=atoi(strtok(riga,","));
-            printf("%d ", (puntatore+k)->rank);
-            (puntatore+k)->name=strtok(NULL,",");
-            printf("% s ", (puntatore+k)->name);
-            (puntatore+k)->platform=strtok(NULL,",");
-            printf("% s ", (puntatore+k)->platform);
-            (puntatore+k)->year=atoi(strtok(NULL,","));
-            printf("% d ", (puntatore+k)->year);
-            (puntatore+k)->genre=strtok(NULL,",");
-            printf("% s ", (puntatore+k)->genre);
-            (puntatore+k)->publisher=strtok(NULL,",");
-            printf("% s ", (puntatore+k)->publisher);
-            (puntatore+k)->NA_Sales=atof(strtok(NULL,","));
-            printf("% .2f ", (puntatore+k)->NA_Sales);
-            (puntatore+k)->EU_Sales=atof(strtok(NULL,","));
-            printf("% .2f ", (puntatore+k)->EU_Sales);
-            (puntatore+k)->JP_Sales=atof(strtok(NULL,","));
-            printf("% .2f ", (puntatore+k)->JP_Sales);
-            (puntatore+k)->Other_Sales=atof(strtok(NULL,","));
-            printf("% .2f ", (puntatore+k)->Other_Sales);
-            (puntatore+k)->Global_Sales=atof(strtok(NULL,","));
-            printf("% .2f\n", (puntatore+k)->Global_Sales);
+            (a+k)->rank=atoi(strtok(riga,","));
+            printf("%d ", (a+k)->rank);
+            (a+k)->name=strtok(NULL,",");
+            printf("% s ", (a+k)->name);
+            (a+k)->platform=strtok(NULL,",");
+            printf("% s ", (a+k)->platform);
+            (a+k)->year=atoi(strtok(NULL,","));
+            printf("% d ", (a+k)->year);
+            (a+k)->genre=strtok(NULL,",");
+            printf("% s ", (a+k)->genre);
+            (a+k)->publisher=strtok(NULL,",");
+            printf("% s ", (a+k)->publisher);
+            (a+k)->NA_Sales=atof(strtok(NULL,","));
+            printf("% .2f ", (a+k)->NA_Sales);
+            (a+k)->EU_Sales=atof(strtok(NULL,","));
+            printf("% .2f ", (a+k)->EU_Sales);
+            (a+k)->JP_Sales=atof(strtok(NULL,","));
+            printf("% .2f ", (a+k)->JP_Sales);
+            (a+k)->Other_Sales=atof(strtok(NULL,","));
+            printf("% .2f ", (a+k)->Other_Sales);
+            (a+k)->Global_Sales=atof(strtok(NULL,","));
+            printf("% .2f\n", (a+k)->Global_Sales);
             k++;
         }
     }
-
+    free(*a);
     fclose(fp);
     return 1;
 }
