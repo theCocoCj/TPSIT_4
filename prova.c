@@ -81,5 +81,4 @@ int  main(){
     //insertHead(&lista, 10);
     //stampaNum(lista);
 
-
 }
