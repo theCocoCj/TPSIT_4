@@ -8,27 +8,25 @@ typedef struct  node
 
 void stampaNum(Node *lista){
     Node* l;
-    l = lista;
-
     l=lista; // l punta all'inizio della lista
+    
     printf("numeri inseriti: ");
     while (l!=NULL){
         printf("\n%d - %p \n",l->valore, l->next); //la seconda stampa è il puntatore, l'ultimo ha tutti 0 perchè
                                                    //non viene assegnata una posizione
-        l=l->next; //si assegna ad l il nome successivo
+        l=l->next; //si assegna ad l il nodo successivo
     }
 }
 
 void contaNum(Node *lista){
     int k = 0;
     Node* l;
-    l = lista;
-
     l=lista; // l punta all'inizio della lista
-    printf("numeri inseriti: ");
+    
+  
     while (l!=NULL){
         k++;
-        l=l->next; //si assegna ad l il nome successivo
+        l=l->next; //si assegna ad l il nodo successivo
     }
     printf("Ci sono %d numeri\n", k);
 }
@@ -38,7 +36,7 @@ void insertHead(Node **lista, int new_valore){//si passa come **lista per assegn
     new_head = (Node*)malloc(sizeof(Node));
 
     new_head->valore = new_valore; //carico il nuovo valore nel node temporaneo/nuovo
-    new_head->next = (*lista); //assegno al next la testa precedente
+    new_head->next = (*lista); //assegno al next la testa precedente, che è la testa puntata
     (*lista) = new_head; //assegno la nuova testa
 }
 
